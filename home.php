@@ -2,14 +2,14 @@
 session_start();
 if (isset($_POST['but_logout'])) {
     session_destroy();
-    header("Location: dangnhap.php");
+    header("Location: login.php");
     exit();
 }
 include 'db_connect.php';
 
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: dangnhap.php");
+    header("Location: login.php");
     exit();
 }
 include 'nav.php';

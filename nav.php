@@ -85,10 +85,10 @@
     ?>
     <header class="topnav">
         <div class="nav-left">
-            <h2>PET</h2>
+            <h2 >PET</h2>
         </div>
         <div class="nav-center">
-            <a href="trangchu.php">TRANG CHỦ</a>
+            <a href="home.php">TRANG CHỦ</a>
             <a href="#">VIDEO</a>
             <a href="#">NHẮN TIN</a>
             <a href="#">THÔNG BÁO</a>

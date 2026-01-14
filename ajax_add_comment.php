@@ -22,7 +22,7 @@ $mysqli->query("
     VALUES ($post_id, $user_id, '$comment', NOW())
 ");
 
-// Lấy lại thông tin user để render ngay (display_name + avatar_url)
+//display_name + avatar_url
 $user_res = $mysqli->query("SELECT display_name, avatar_url FROM users WHERE user_id = $user_id");
 $user = $user_res->fetch_assoc();
 

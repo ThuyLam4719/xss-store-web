@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['user_id']  = $row['user_id'];   // Lưu user_id
         $_SESSION['username'] = $row['username']; // Lưu username
-        header("Location: trangchu.php");
+        header("Location: home.php");
         exit();
     } else {
         echo "Sai username hoặc mật khẩu!";
@@ -29,18 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khoe thú cưng</title>
+    <title>Khoe thú cưng </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div>
             <div class="loginForm">
-                <h1> Đăng nhập  </h1>
-                <form action="dangnhap.php" method="POST">
+                <h1> Login </h1>
+                <form action="login.php" method="POST">
                     <input type="text" name="username" placeholder="Username" required>
                     <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit" class="login-btn">Log in</button> 
+                    <button type="submit" class="login-btn">Login</button> 
                 </form>
             </div>
         </div>
