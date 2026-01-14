@@ -7,14 +7,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $passwd   = $_POST['password'];
     
-     // Cố tình không escape hoặc prepare để giữ SQLi
+     // khong escape hay prepare statement de demo SQLi
     $sql = "SELECT * FROM users WHERE username='$username' and passwd='$passwd'";
     $result = $mysqli->query($sql);
 
     if ($result && $result->num_rows == 1) {
         $row = $result->fetch_assoc();
-        $_SESSION['user_id']  = $row['user_id'];   // Lưu user_id
-        $_SESSION['username'] = $row['username']; // Lưu username
+        $_SESSION['user_id']  = $row['user_id'];   // luu user_id
+        $_SESSION['username'] = $row['username']; // luu username
         header("Location: home.php");
         exit();
     } else {

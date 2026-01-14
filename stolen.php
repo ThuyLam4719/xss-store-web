@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- dữ liệu AJAX sẽ chèn vào đây -->
+            <!-- du leu duoc chen tu dong vao day -->
         </tbody>
     </table>
 
@@ -37,9 +37,9 @@
             });
         }
 
-        // Tự động load khi mở trang
+        // tu dong load khi mo trang
         loadData();
-        // 2 giây load lại 1 lần
+        // 2 giay load lai 1 lan
         setInterval(loadData, 2000);
     </script>
 </body>

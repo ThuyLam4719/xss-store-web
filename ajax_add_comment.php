@@ -16,7 +16,7 @@ if ($post_id <= 0 || $comment === '') {
     exit("Thiếu dữ liệu");
 }
 
-// Lưu bình luận (CỐ TÌNH không escape để demo SQLi/XSS nếu muốn)
+// luu binh luan truc tiep vao db 
 $mysqli->query("
     INSERT INTO comments (post_id, user_id, comment_text, created_at)
     VALUES ($post_id, $user_id, '$comment', NOW())
@@ -26,7 +26,7 @@ $mysqli->query("
 $user_res = $mysqli->query("SELECT display_name, avatar_url FROM users WHERE user_id = $user_id");
 $user = $user_res->fetch_assoc();
 
-// Trả HTML của bình luận mới (KHÔNG escape comment_text -> XSS)
+// tra ve binh luan vua them duoi dang html
 echo '
 <div class="comment">
     <img src="'. $user['avatar_url'] .'" alt="Avatar">

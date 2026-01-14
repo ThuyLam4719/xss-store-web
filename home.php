@@ -16,7 +16,7 @@ include 'nav.php';
 ?><main><?php
 
 
-// Lấy danh sách bài đăng cùng thông tin user
+// lay danh sach bai dang cung thong tin user
 $sql_posts = "
     SELECT p.post_id, p.content, p.image_url,
            u.display_name, u.avatar_url
@@ -53,7 +53,7 @@ if ($posts_res) {
 
         <div class="comments">
             <?php
-            // Lấy danh sách bình luận kèm tên và avatar người cmt
+            // lay danh sach binh luan cho bai dang
             $pid = (int)$post['post_id'];
             $cmt_sql = "
                 SELECT c.comment_text, u.display_name, u.avatar_url
@@ -70,14 +70,14 @@ if ($posts_res) {
                         <img src="<?= $cmt['avatar_url'] ?>" alt="Avatar">
                         <div class="content">
                             <strong><?= htmlspecialchars($cmt['display_name']) ?>:</strong>
-                            <!-- CỐ TÌNH LỖ HỔNG XSS: không escape comment_text -->
+                            <!-- co tinh tao lo hong: khong escape -->
                             <?= $cmt['comment_text'] ?>
                         </div>
                     </div>
                 <?php endwhile; ?>
             </div>
 
-            <!-- Form bình luận (AJAX, không reload) -->
+            <!-- form binh luan-->
             <form class="commentForm" data-post-id="<?= $pid ?>">
                 <input type="hidden" name="post_id" value="<?= $pid ?>">
                 <input type="text" name="comment" placeholder="Viết bình luận..." required>
@@ -92,7 +92,7 @@ if ($posts_res) {
 <?php endforeach; ?>
 
 <script>
-// Gửi bình luận bằng AJAX cho MỖI bài viết
+// gui binh luan bang AJAX
 document.querySelectorAll(".commentForm").forEach(form => {
     form.addEventListener("submit", async function(e) {
         e.preventDefault();
